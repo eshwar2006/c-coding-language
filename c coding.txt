@@ -1,0 +1,260 @@
+int smallestEvenMultiple(int n) {
+    if (n % 2 == 0) {
+        return n;
+    }
+    return n * 2;
+}
+
+
+
+#include <stdlib.h>
+#include <string.h>
+
+char** stringMatching(char** words, int wordsSize, int* returnSize) {
+    char** result = (char**)malloc(wordsSize * sizeof(char*));
+    int count = 0;
+
+    for (int i = 0; i < wordsSize; i++) {
+        for (int j = 0; j < wordsSize; j++) {
+            if (i != j && strstr(words[j], words[i]) != NULL) {
+                result[count] = words[i];
+                count++;
+                break;
+            }
+        }
+    }
+
+    *returnSize = count;
+    return result;
+}
+
+
+
+int numIdenticalPairs(int* nums, int numsSize) {
+    int count = 0;
+    for (int i = 0; i < numsSize; i++) {
+        for (int j = i + 1; j < numsSize; j++) {
+            if (nums[i] == nums[j]) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+
+int subtractProductAndSum(int n) {
+    int product = 1;
+    int sum = 0;
+    
+    while (n > 0) {
+        int digit = n % 10;
+        product *= digit;
+        sum += digit;
+        n /= 10;
+    }
+    
+    return product - sum;
+}
+
+
+int maximumWealth(int** accounts, int accountsSize, int* accountsColSize) {
+    int maxWealth = 0;
+    
+    for (int i = 0; i < accountsSize; i++) {
+        int currentWealth = 0;
+        for (int j = 0; j < accountsColSize[i]; j++) {
+            currentWealth += accounts[i][j];
+        }
+        if (currentWealth > maxWealth) {
+            maxWealth = currentWealth;
+        }
+    }
+    
+    return maxWealth;
+}
+
+
+int numJewelsInStones(char* jewels, char* stones) {
+    int count = 0;
+    for (int i = 0; stones[i] != '\0'; i++) {
+        for (int j = 0; jewels[j] != '\0'; j++) {
+            if (stones[i] == jewels[j]) {
+                count++;
+                break;
+            }
+        }
+    }
+    return count;
+}
+
+
+
+#include <stdio.h>
+
+int main() {
+    int num, reversed = 0, remainder, original;
+
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    original = num;
+
+    while (num != 0) {
+        remainder = num % 10;
+        reversed = reversed * 10 + remainder;
+        num /= 10;
+    }
+
+    if (original == reversed)
+        printf("%d is a palindrome.\n", original);
+    else
+        printf("%d is not a palindrome.\n", original);
+
+    return 0;
+}
+
+
+
+
+
+
+#include <stdio.h>
+
+int main() {
+    int num, sum = 0, remainder;
+
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    while (num != 0) {
+        remainder = num % 10;
+        sum += remainder;
+        num /= 10;
+    }
+
+    printf("Sum of digits = %d\n", sum);
+
+    return 0;
+}
+
+
+
+
+even or odd:
+
+#include <stdio.h>
+
+int main() {
+    int num;
+    
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+    
+    if (num % 2 == 0) {
+        printf("%d is even.\n", num);
+    } else {
+        printf("%d is odd.\n", num);
+    }
+    
+    return 0;
+}
+
+
+
+if loop:
+
+
+
+#include <stdio.h>
+
+int main() {
+    int a, b, c;
+    
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+    
+    if (a >= b && a >= c) {
+        printf("%d is the largest.\n", a);
+    } else if (b >= a && b >= c) {
+        printf("%d is the largest.\n", b);
+    } else {
+        printf("%d is the largest.\n", c);
+    }
+    
+    return 0;
+}
+
+
+factorial:
+
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    unsigned long long factorial = 1;
+    
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    
+    for (i = 1; i <= n; ++i) {
+        factorial *= i;
+    }
+    
+    printf("Factorial of %d = %llu\n", n, factorial);
+    return 0;
+}
+
+prime:
+
+#include <stdio.h>
+
+int main() {
+    int n, i, isPrime = 1;
+    
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    
+    if (n <= 1) isPrime = 0;
+    
+    for (i = 2; i <= n / 2; i++) {
+        if (n % i == 0) {
+            isPrime = 0;
+            break;
+        }
+    }
+    
+    if (isPrime) {
+        printf("%d is a prime number.\n", n);
+    } else {
+        printf("%d is not a prime number.\n", n);
+    }
+    
+    return 0;
+}
+
+Fibonacci:
+
+#include <stdio.h>
+
+int main() {
+    int n, t1 = 0, t2 = 1, nextTerm;
+    
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+    
+    printf("Fibonacci Series: ");
+    for (int i = 1; i <= n; ++i) {
+        printf("%d ", t1);
+        nextTerm = t1 + t2;
+        t1 = t2;
+        t2 = nextTerm;
+    }
+    
+    printf("\n");
+    return 0;
+}
+
+
+
+
